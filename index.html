@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Amerikanska hus</title>
+<meta name="theme-color" content="#2E5A8A">
+<meta name="description" content="Amerikansk bungalow i 3D med justerbar taklutning, fasad och planlösningar.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Amerikanska hus">
+<style>
+:root{
+  --bg:#F2F3EF; --text-primary:#1B2420; --text-secondary:#56635B;
+  --surface-0:#F7F8F5; --surface-1:#E3E7E0; --surface-2:#D3DACF;
+  --bg-accent:#D5E3F3; --border-accent:#2E5A8A; --border-strong:#8D9A92; --border-stronger:#5E6C64;
+  --btn:#FFFFFF; --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#111715; --text-primary:#E7ECE8; --text-secondary:#94A29A;
+  --surface-0:#161D1A; --surface-1:#1D2622; --surface-2:#2A362F;
+  --bg-accent:#24405E; --border-accent:#86B6EA; --border-strong:#5E6C64; --border-stronger:#94A29A;
+  --btn:#1D2622; color-scheme:dark;}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text-primary);font-family:var(--font-sans);font-size:15px;line-height:1.5;
+  padding:max(14px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  -webkit-text-size-adjust:100%}
+main{max-width:640px;margin:0 auto}
+h1{font-size:22px;line-height:1.2;margin:0 0 2px;font-weight:700;letter-spacing:-0.01em}
+.sub{margin:0 0 14px;color:var(--text-secondary);font-size:13px}
+button{font:inherit;font-size:14px;color:var(--text-primary);background:var(--btn);border:1px solid var(--border-strong);border-radius:8px;padding:8px 12px;cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible{outline:2px solid var(--border-accent);outline-offset:2px}
+input[type=range]{accent-color:var(--border-accent);min-width:0}
+svg{display:block;max-width:100%;height:auto}
+</style>
+</head>
+<body>
+<main>
+<h1>Amerikanska hus</h1>
+<p class="sub">Bungalow i 3D, fasad och planlösningar</p>
+<div style="display:flex;gap:8px;margin:0 0 8px;flex-wrap:wrap" id="views">
+<button data-v="tak">Taklutning 3D</button><button data-v="fasad">Fasad</button><button data-v="plan">Planlösning</button>
+</div>
+<div id="s3">
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+<span style="font-size:14px;min-width:70px">Taklutning</span>
+<input type="range" id="pt" min="14" max="45" step="1" value="22" style="flex:1" aria-label="Taklutning">
+<span id="ptout" style="font-size:14px;font-weight:500;min-width:36px;text-align:right">22°</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 10px">
+<span style="font-size:14px;min-width:70px">Rotation</span>
+<input type="range" id="ang" min="0" max="359" step="1" value="30" style="flex:1" aria-label="Rotation">
+<span id="angout" style="font-size:14px;min-width:36px;text-align:right">30°</span>
+</div>
+</div>
+<div style="display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap" id="opts"></div>
+<div style="background:var(--surface-1);border-radius:12px;padding:8px">
+<svg id="scene" width="100%" viewBox="0 0 380 340" role="img"><title>Husmodell</title><desc>3D-modell, fasad eller planlösning</desc></svg>
+</div>
+<div id="m" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px"></div>
+<div style="margin-top:10px;background:var(--surface-1);border-radius:12px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;justify-content:space-between">
+<div><div style="font-size:12px;color:var(--text-secondary)">Försäljningspris</div><div style="font-size:28px;font-weight:500">18 000 000 kr</div></div>
+<div style="font-size:13px;color:var(--text-secondary);min-width:0;flex:1 1 220px">ca 164 000 kr/m² BOA (110 m²) · 128 m² BTA<br>Enebyberg i dag: ca 80 000 kr/m², motsvarar ca 8,8 Mkr för 110 m²</div>
+</div>
+
+</main>
+<script src="app.js"></script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+</script>
+</body>
+</html>

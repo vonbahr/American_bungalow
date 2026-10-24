@@ -1,0 +1,17 @@
+{
+  "name": "Amerikanska hus i Sverige",
+  "short_name": "Amerikanska hus",
+  "description": "Amerikansk bungalow i 3D med justerbar taklutning, fasad och planlösningar.",
+  "lang": "sv",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F3EF",
+  "theme_color": "#2E5A8A",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
